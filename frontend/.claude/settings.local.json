@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(composer *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\ahmed\\\\OneDrive\\\\Desktop\\\\achraf-wash-v2\\\\frontend\" -Force -Filter \".gitignore\" | ForEach-Object { Get-Content $_.FullName } | Select-String \"env\")",
+      "PowerShell(Get-Job *)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:8000/api/admin/login\" -Method POST -Body \\(@{email=\"test@test.com\";password=\"wrong\"} | ConvertTo-Json\\) -ContentType \"application/json\" -Headers @{Accept=\"application/json\"} -UseBasicParsing -TimeoutSec 5; \"STATUS: $\\($r.StatusCode\\)\"; $r.Content } catch { \"ERROR: $\\($_.Exception.Message\\)\"; if \\($_.Exception.Response\\) { $stream = $_.Exception.Response.GetResponseStream\\(\\); $reader = New-Object System.IO.StreamReader\\($stream\\); $reader.ReadToEnd\\(\\) } })",
+      "PowerShell(Test-NetConnection *)"
+    ]
+  }
+}

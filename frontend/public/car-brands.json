@@ -1,0 +1,72 @@
+[
+  {
+    "key": "toyota",
+    "name": "Toyota",
+    "logo": "TOY",
+    "logoBackground": "#ef4444",
+    "models": ["Corolla", "Yaris", "RAV4", "C-HR"]
+  },
+  {
+    "key": "renault",
+    "name": "Renault",
+    "logo": "R",
+    "logoBackground": "#2563eb",
+    "models": ["Clio", "Mégane", "Captur", "Kangoo"]
+  },
+  {
+    "key": "peugeot",
+    "name": "Peugeot",
+    "logo": "P",
+    "logoBackground": "#0f766e",
+    "models": ["208", "308", "3008", "2008"]
+  },
+  {
+    "key": "volkswagen",
+    "name": "Volkswagen",
+    "logo": "VW",
+    "logoBackground": "#1d4ed8",
+    "models": ["Golf", "Polo", "Tiguan", "Passat"]
+  },
+  {
+    "key": "bmw",
+    "name": "BMW",
+    "logo": "BMW",
+    "logoBackground": "#0e7490",
+    "models": ["Série 1", "Série 3", "X1", "X3"]
+  },
+  {
+    "key": "mercedes",
+    "name": "Mercedes",
+    "logo": "M",
+    "logoBackground": "#1f2937",
+    "models": ["A-Class", "C-Class", "GLC", "E-Class"]
+  },
+  {
+    "key": "audi",
+    "name": "Audi",
+    "logo": "A",
+    "logoBackground": "#111827",
+    "models": ["A3", "A4", "Q3", "Q5"]
+  },
+  {
+    "key": "hyundai",
+    "name": "Hyundai",
+    "logo": "H",
+    "logoBackground": "#2563eb",
+    "models": ["i10", "i20", "Tucson", "Santa Fe"]
+  },
+  {
+    "key": "kia",
+    "name": "Kia",
+    "logo": "KIA",
+    "logoBackground": "#b91c1c",
+    "models": ["Picanto", "Rio", "Sportage", "Seltos"]
+  },
+  {
+    "key": "nissan",
+    "name": "Nissan",
+    "logo": "N",
+    "logoBackground": "#f59e0b",
+    "models": ["Micra", "Qashqai", "X-Trail", "Leaf"]
+  }
+]
