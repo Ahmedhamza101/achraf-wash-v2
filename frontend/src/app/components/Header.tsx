@@ -153,7 +153,7 @@ export function Header() {
             {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden p-2 rounded-md text-white hover:text-blue-600 hover:bg-white/10"
+              className="md:hidden p-2 rounded-md text-blue-600 hover:text-blue-800 hover:bg-white/10"
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
