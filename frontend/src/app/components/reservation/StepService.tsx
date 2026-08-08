@@ -21,17 +21,17 @@ export function StepService({
   const isValid = !!selectedPackageName;
 
   return (
-    <Card className="rounded-[2rem] border-gray-200 p-6 shadow-sm">
+    <Card className="rounded-[2rem] border-gray-200 p-4 shadow-sm sm:p-6">
       <CardHeader className="px-0 pb-4">
-        <CardTitle className="text-3xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-gray-900 sm:text-3xl">
           Choisissez votre service
         </CardTitle>
-        <p className="text-gray-600 mt-2">
+        <p className="mt-2 text-sm text-gray-600 sm:text-base">
           Sélectionnez le type de lavage souhaité
         </p>
       </CardHeader>
       <CardContent className="px-0">
-        <div className="grid gap-6 xl:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {packages.map((pkg) => {
             const selected = selectedPackageName === pkg.name;
             return (
@@ -90,7 +90,7 @@ export function StepService({
           })}
         </div>
 
-        <div className="w-50 mt-8  flex flex-col gap-3 sm:flex-row">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-end">
           <Button
             type="button"
             variant="outline"
@@ -101,7 +101,7 @@ export function StepService({
           </Button>
           <Button
             type="button"
-            className="w-50 ml-220 bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full bg-blue-600 text-white hover:bg-blue-700 sm:w-auto"
             onClick={onNext}
             disabled={!isValid}
           >

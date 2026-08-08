@@ -45,9 +45,9 @@ export function StepContact({
 
   return (
     <div className="grid gap-6 xl:grid-cols-[1.4fr_0.9fr]">
-      <Card className="rounded-[2rem] border-gray-200 p-6 shadow-sm">
+      <Card className="rounded-[2rem] border-gray-200 p-4 shadow-sm sm:p-6">
         <CardHeader className="px-0 pb-4">
-          <CardTitle className="text-3xl font-semibold text-gray-900">
+          <CardTitle className="text-2xl font-semibold text-gray-900 sm:text-3xl">
             Vos coordonnées
           </CardTitle>
         </CardHeader>
@@ -106,8 +106,8 @@ export function StepContact({
             </label>
             <label className="space-y-2 text-sm text-gray-700">
               <span>Numéro de téléphone *</span>
-              <div className="flex gap-3">
-                <span className="inline-flex items-center rounded-xl border border-gray-200 bg-gray-100 px-4 text-gray-700">
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <span className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-gray-100 px-4 py-3 text-gray-700 sm:justify-start">
                   +212 Maroc
                 </span>
                 <input
@@ -136,7 +136,7 @@ export function StepContact({
         </CardContent>
       </Card>
 
-      <Card className="rounded-[2rem] border-gray-200 p-6 shadow-sm">
+      <Card className="rounded-[2rem] border-gray-200 p-4 shadow-sm sm:p-6">
         <CardHeader className="px-0 pb-4">
           <CardTitle className="text-2xl font-semibold text-gray-900">
             Résumé
@@ -144,29 +144,31 @@ export function StepContact({
         </CardHeader>
         <CardContent className="px-0 space-y-4 text-gray-700">
           <div className="space-y-3 rounded-2xl border border-gray-200 bg-white p-5">
-            <div className="flex justify-between text-sm text-gray-500">
+            <div className="flex flex-col gap-1 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
               <span>Véhicule</span>
-              <span>
+              <span className="text-right">
                 {reservation.marque} {reservation.modele} {reservation.annee}
               </span>
             </div>
-            <div className="flex justify-between text-sm text-gray-500">
+            <div className="flex flex-col gap-1 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
               <span>Service</span>
-              <span>{reservation.packageName || "—"}</span>
+              <span className="text-right">
+                {reservation.packageName || "—"}
+              </span>
             </div>
-            <div className="flex justify-between text-sm text-gray-500">
+            <div className="flex flex-col gap-1 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
               <span>Date et heure</span>
-              <span>
+              <span className="text-right">
                 {reservation.date || "—"} {reservation.time || ""}
               </span>
             </div>
-            <div className="flex justify-between text-sm text-gray-500">
+            <div className="flex flex-col gap-1 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
               <span>Localisation</span>
-              <span>{reservation.city || "—"}</span>
+              <span className="text-right">{reservation.city || "—"}</span>
             </div>
-            <div className="flex justify-between text-sm text-gray-500">
+            <div className="flex flex-col gap-1 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
               <span>Adresse</span>
-              <span>{reservation.address || "—"}</span>
+              <span className="text-right">{reservation.address || "—"}</span>
             </div>
           </div>
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-5 text-lg font-semibold text-gray-900">
@@ -181,7 +183,12 @@ export function StepContact({
           </div>
         </CardContent>
         <div className="mt-4 flex flex-col gap-3">
-          <Button type="button" variant="outline" onClick={onPrevious}>
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full"
+            onClick={onPrevious}
+          >
             Précédent
           </Button>
           <Button

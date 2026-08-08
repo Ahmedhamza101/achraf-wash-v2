@@ -49,16 +49,18 @@ export function StepDate({
   const isValid = date.trim().length > 0 && time.trim().length > 0;
 
   return (
-    <Card className="rounded-[2rem] border-gray-200 p-6 shadow-sm">
+    <Card className="rounded-[2rem] border-gray-200 p-4 shadow-sm sm:p-6">
       <CardHeader className="px-0 pb-4">
-        <CardTitle className="text-3xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-gray-900 sm:text-3xl">
           Emplacement et horaires
         </CardTitle>
-        <p className="text-gray-600 mt-2">Quand souhaitez-vous le lavage ?</p>
+        <p className="mt-2 text-sm text-gray-600 sm:text-base">
+          Quand souhaitez-vous le lavage ?
+        </p>
       </CardHeader>
       <CardContent className="px-0">
-        <div className="ml-full grid gap-6 xl:grid-cols-2">
-          <div className="space-y-6 rounded-[2rem] border border-gray-200 bg-gray-50 p-6">
+        <div className="grid gap-6">
+          <div className="space-y-6 rounded-[2rem] border border-gray-200 bg-gray-50 p-4 sm:p-6">
             <h3 className="text-xl font-semibold text-gray-900">Date</h3>
             <input
               type="date"
@@ -67,7 +69,7 @@ export function StepDate({
               className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 shadow-sm outline-none focus:border-blue-500"
             />
             <h3 className="text-xl font-semibold text-gray-900">Horaire</h3>
-            <div className="grid gap-3 sm:grid-cols-3">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {times.map((slot) => {
                 const active = time === slot;
                 return (
@@ -89,7 +91,7 @@ export function StepDate({
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-end">
           <Button
             type="button"
             variant="outline"
@@ -100,7 +102,7 @@ export function StepDate({
           </Button>
           <Button
             type="button"
-            className="w-50 ml-220 bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full bg-blue-600 text-white hover:bg-blue-700 sm:w-auto"
             onClick={onNext}
             disabled={!isValid}
           >

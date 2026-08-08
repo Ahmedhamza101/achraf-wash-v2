@@ -116,40 +116,44 @@ export function Reservation() {
   };
 
   return (
-    <section className="scroll-mt-24 py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-semibold text-gray-900">Réservation</h2>
-          <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">
+    <section className="scroll-mt-24 bg-gray-50 py-12 sm:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center sm:mb-12">
+          <h2 className="text-3xl font-semibold text-gray-900 sm:text-4xl">
+            Réservation
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-base text-gray-600 sm:text-lg">
             Suivez chaque étape pour réserver votre lavage auto avec ACHRAFWASH.
           </p>
         </div>
 
-        <div className="mb-12 overflow-hidden rounded-[2rem] border border-gray-200 bg-white px-4 py-8 shadow-sm">
-          <div className="relative mx-auto max-w-5xl px-4">
-            <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gray-200" />
-            <div className="relative flex items-center justify-between space-x-4">
+        <div className="mb-8 overflow-hidden rounded-[2rem] border border-gray-200 bg-white px-3 py-6 shadow-sm sm:mb-12 sm:px-4 sm:py-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               {steps.map((step, index) => {
                 const isCompleted = index + 1 < activeStep;
                 const isCurrent = index + 1 === activeStep;
                 return (
                   <div
                     key={step.key}
-                    className="relative z-10 flex items-center justify-center"
+                    className="relative z-10 flex min-w-[72px] flex-1 flex-col items-center justify-center gap-2 text-center sm:min-w-[88px]"
                   >
                     <div
-                      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 text-xl transition ${
+                      className={`flex h-12 w-12 items-center justify-center rounded-full border-2 text-lg transition sm:h-14 sm:w-14 sm:text-xl ${
                         isCompleted || isCurrent
-                          ? "bg-blue-600 border-blue-600 text-white"
-                          : "bg-white border-gray-300 text-gray-500"
+                          ? "border-blue-600 bg-blue-600 text-white"
+                          : "border-gray-300 bg-white text-gray-500"
                       }`}
                     >
                       {isCompleted ? (
-                        <Check className="h-6 w-6" />
+                        <Check className="h-5 w-5 sm:h-6 sm:w-6" />
                       ) : (
-                        <step.icon className="h-6 w-6" />
+                        <step.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                       )}
                     </div>
+                    <span className="text-[11px] font-medium text-gray-500 sm:text-sm">
+                      {step.label}
+                    </span>
                   </div>
                 );
               })}

@@ -15,7 +15,7 @@ type StepVehiculeProps = {
   reservation: {
     marque: string;
     modele: string;
-    annee: number;
+    annee: string;
     couleur: string;
   };
   onUpdateReservation: (
@@ -66,12 +66,12 @@ export function StepVehicule({
     !!selectedVehicleType;
 
   return (
-    <Card className="rounded-[2rem] border-gray-200 p-6 shadow-sm">
+    <Card className="rounded-[2rem] border-gray-200 p-4 shadow-sm sm:p-6">
       <CardHeader className="px-0 pb-4">
-        <CardTitle className="text-3xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-gray-900 sm:text-3xl">
           Sélectionnez votre véhicule
         </CardTitle>
-        <p className="text-gray-600 mt-2">
+        <p className="mt-2 text-sm text-gray-600 sm:text-base">
           Choisissez la marque et le modèle de votre véhicule.
         </p>
       </CardHeader>
@@ -140,10 +140,10 @@ export function StepVehicule({
         </div>
 
         <div className="mt-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <h3 className="mb-4 text-lg font-semibold text-gray-900">
             Type de véhicule
           </h3>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
             {vehicleTypes.map((vehicle) => {
               const selected = selectedVehicleType === vehicle.key;
               return (
@@ -179,11 +179,11 @@ export function StepVehicule({
           </div>
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-8 flex justify-center sm:mt-12">
           <Button
             type="button"
             onClick={onNext}
-            className="w-50 bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full max-w-xs bg-blue-600 text-white hover:bg-blue-700 sm:w-52"
             disabled={!isValid}
           >
             Suivant
