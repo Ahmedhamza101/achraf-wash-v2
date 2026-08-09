@@ -12,6 +12,9 @@ import AdminReservationFormPage from "./pages/admin/AdminReservationFormPage";
 import AdminMessagesPage from "./pages/admin/AdminMessagesPage";
 import AdminLayout from "./layouts/AdminLayout";
 import { ProtectedRoute } from "./components/admin/ProtectedRoute";
+import { LoadingScreen } from "./components/loading-ui/loading-screen";
+import { useState, useEffect } from "react";
+import { SmoothScroll } from "./components/SmoothScroll";
 
 function SiteLayout() {
   return (
@@ -25,33 +28,55 @@ function SiteLayout() {
 }
 
 export default function App() {
-  return (
-    <Routes>
-      <Route element={<SiteLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/reservation" element={<ReservationPage />} />
-        <Route path="*" element={<HomePage />} />
-      </Route>
+  const [isLoading, setIsLoading] = useState(true);
+  const [isOpening, setIsOpening] = useState(false);
 
-      <Route path="/admin/login" element={<AdminLoginPage />} />
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <AdminLayout />
-          </ProtectedRoute>
-        }
-      >
-        <Route index element={<AdminOverviewPage />} />
-        <Route path="tarifs" element={<AdminTarifsPage />} />
-        <Route path="reservations" element={<AdminReservationsPage />} />
-        <Route path="reservations/new" element={<AdminReservationFormPage />} />
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      setIsOpening(true);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
+  return (
+    <div className={isOpening ? "portal-open" : ""}>
+      <SmoothScroll />
+      <ScrollProgress />
+      <Routes>
+        <Route element={<SiteLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/reservation" element={<ReservationPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Route>
+
+        <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route
-          path="reservations/:id/edit"
-          element={<AdminReservationFormPage />}
-        />
-        <Route path="messages" element={<AdminMessagesPage />} />
-      </Route>
-    </Routes>
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<AdminOverviewPage />} />
+          <Route path="tarifs" element={<AdminTarifsPage />} />
+          <Route path="reservations" element={<AdminReservationsPage />} />
+          <Route
+            path="reservations/new"
+            element={<AdminReservationFormPage />}
+          />
+          <Route
+            path="reservations/:id/edit"
+            element={<AdminReservationFormPage />}
+          />
+          <Route path="messages" element={<AdminMessagesPage />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
