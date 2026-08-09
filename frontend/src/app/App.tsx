@@ -46,7 +46,6 @@ export default function App() {
   return (
     <div className={isOpening ? "portal-open" : ""}>
       <SmoothScroll />
-      <ScrollProgress />
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<HomePage />} />
