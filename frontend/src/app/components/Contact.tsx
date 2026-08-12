@@ -262,6 +262,9 @@ export function Contact() {
               size="lg"
               variant="secondary"
               className="bg-white text-blue-600 hover:bg-gray-100"
+              onClick={() => {
+                window.location.href = "tel:+212670504726";
+              }}
             >
               Appeler le 06 70 50 47 26
             </Button>

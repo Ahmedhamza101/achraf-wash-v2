@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
+import "../../lib/scroll";
 
 export function SmoothScroll() {
   useEffect(() => {
@@ -11,6 +12,8 @@ export function SmoothScroll() {
       touchMultiplier: 1.5, // controls mobile touch drag smoothness
     });
 
+    window.__lenis = lenis;
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -19,6 +22,7 @@ export function SmoothScroll() {
     requestAnimationFrame(raf);
 
     return () => {
+      window.__lenis = undefined;
       lenis.destroy();
     };
   }, []);

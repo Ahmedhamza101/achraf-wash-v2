@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Check } from "lucide-react";
 import { API_BASE_URL } from "../../lib/api";
+import { scrollToTop } from "../../lib/scroll";
 import {
   steps,
   vehicleBrands,
@@ -55,9 +56,11 @@ export function Reservation() {
 
   const nextStep = () => {
     setCurrentStep((prev) => Math.min(prev + 1, 4));
+    scrollToTop();
   };
   const previousStep = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
+    scrollToTop();
   };
 
   const handleConfirm = async () => {
@@ -108,6 +111,7 @@ export function Reservation() {
       );
       setReservation(defaultReservation);
       setCurrentStep(1);
+      scrollToTop();
     } catch (error) {
       setError("Impossible de contacter le serveur. Veuillez réessayer.");
     } finally {
